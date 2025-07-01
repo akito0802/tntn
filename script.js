@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const subSelect = document.getElementById("sub-genre");
   const infoContainer = document.getElementById("info-container");
 
-  // メインジャンル追加（カテゴリ）
   for (let category in genreData) {
     const option = document.createElement("option");
     option.value = category;
