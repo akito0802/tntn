@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("JS loaded");
+  console.log("genreData:", genreData);
+
   const mainSelect = document.getElementById("main-genre");
   const subSelect = document.getElementById("sub-genre");
   const infoContainer = document.getElementById("info-container");
@@ -29,6 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const category = mainSelect.value;
     const sub = subSelect.value;
     const data = genreData[category][sub];
+
+    if (!data) {
+      infoContainer.innerHTML = "<p>データが見つかりませんでした。</p>";
+      return;
+    }
 
     infoContainer.innerHTML = `
       <h2>${sub}</h2>
