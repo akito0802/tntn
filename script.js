@@ -3,18 +3,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const subSelect = document.getElementById("sub-genre");
   const infoContainer = document.getElementById("info-container");
 
-  // メインジャンル追加
-  for (let genre in genreData) {
+  // メインジャンル追加（カテゴリ）
+  for (let category in genreData) {
     const option = document.createElement("option");
-    option.value = genre;
-    option.textContent = genre;
+    option.value = category;
+    option.textContent = category;
     mainSelect.appendChild(option);
   }
 
   function updateSubGenres() {
-    const selectedGenre = mainSelect.value;
+    const selectedCategory = mainSelect.value;
     subSelect.innerHTML = "";
-    const subGenres = genreData[selectedGenre];
+    const subGenres = genreData[selectedCategory];
 
     for (let sub in subGenres) {
       const option = document.createElement("option");
@@ -27,9 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showInfo() {
-    const main = mainSelect.value;
+    const category = mainSelect.value;
     const sub = subSelect.value;
-    const data = genreData[main][sub];
+    const data = genreData[category][sub];
 
     infoContainer.innerHTML = `
       <h2>${sub}</h2>
